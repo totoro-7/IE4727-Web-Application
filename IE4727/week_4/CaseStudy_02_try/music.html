@@ -8,23 +8,25 @@
             font-family: Verdana, Arial, sans-serif;
             background-color: #F0E9B5;
         }
+
         #wrapper {
             background-color: #D1B38D;
             color: #F0E9B5;
             width: 80%;
             margin: auto;
             min-width: 800px;
-            display: flex;
-            flex-direction: column;
+            box-shadow: 5px 5px 10px rgba(0,0,0,0.8);
         }
 
-        .main {
-            display: flex;
+        main {
+            min-height: 1500px;
         }
 
         #leftcolumn {
-            width: 150px;
+            width: 160px;
             background-color: #E2D1B3;
+            float: left;
+            min-height: 340px;
         }
 
         header {
@@ -34,6 +36,7 @@
             text-align: center;
             padding: 12px;
             height: 130px;
+            font-family: Jokerman, cursive;
         }
 
         nav {
@@ -51,24 +54,21 @@
             font-weight: bold; 
         }
 
+        nav a:active, a:visited { 
+            color:#9E8469; 
+        }
+
+        nav a:link { 
+            color:#755642; 
+        }
+
         #rightcolumn {
-            flex: 1;
+            margin-left: 160px;
             background-color: #f2f2cf;
-            color: #2B0100;
-            padding: 12px 20px;
-        }
-
-        .content{
-            padding: 12px 20px;
-            display: flex;
-            gap: 48px;
-            align-items: flex-start;
-        }
-
-        #ul-contents ul {
-            list-style-image: url(trillium.gif);
-            padding-left: 1.2rem;     /* adjust indent so bullets look right */
-        }
+            color: #000000;
+            padding: 10px 20px;
+            min-height: 320px;
+        } 
 
         footer {
             font-size: 70%;
@@ -79,9 +79,9 @@
             background-color: #D1B38D;
         }
 
+
     </style>
 </head>
-
 <body>
     <div id="wrapper">
         <header>
@@ -92,35 +92,30 @@
                 <nav>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="rooms.html">Menu</a></li>
+                        <li><a href="menu.html">Menu</a></li>
                         <li><a href="music.html">Music</a></li>
                         <li><a href="jobs.html">Jobs</a></li>
-                    </ul>
                 </nav>
             </div>
             <div id="rightcolumn">
-                <h2>Follow the Winding Road to JavaJam</h2>
+                <h2>Music at JavaJam</h2>
                 <div class="content">
-                    <img src="lighthouseisland.jpg" width="400" height="250" id="left-img" alt="Lighthouse Island">
-                    <div id="ul-contents">
-                        <ul>
-                            <li>Specialty Coffee and Tea</li>
-                            <li>Bagels, Muffins, and Organic Snacks</li>
-                            <li>Music and Poetry Readings</li>
-                            <li>Open Mic Night Every Friday</li>
-                        </ul>
-
-                        <p>54321 Route 42
-                        <br>Elison Bay, WI 54210
-                        <br>888-555-8888</p>
-                    </div>
+                    <p>
+                        The first Friday night of each month at JavaJam is a special night. Join us from
+                        8pm to 11pm for some music you won't want to miss.
+                    </p>
                 </div>
             </div>
         </div>
+
         <footer>
             <a style="color: #000000;">Copyright &copy; 2014 JavaJam Coffee House</a>
             <br>yinyu@tan.com
         </footer>
+
+
     </div>
+
+
 </body>
 </html>

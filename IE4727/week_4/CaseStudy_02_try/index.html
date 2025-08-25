@@ -8,23 +8,25 @@
             font-family: Verdana, Arial, sans-serif;
             background-color: #F0E9B5;
         }
+
         #wrapper {
             background-color: #D1B38D;
             color: #F0E9B5;
             width: 80%;
             margin: auto;
             min-width: 800px;
-            display: flex;
-            flex-direction: column;
+            box-shadow: 5px 5px 10px rgba(0,0,0,0.8);
         }
 
-        .main {
-            display: flex;
+        main {
+            min-height: 1500px;
         }
 
         #leftcolumn {
-            width: 150px;
+            width: 160px;
             background-color: #E2D1B3;
+            float: left;
+            min-height: 340px;
         }
 
         header {
@@ -34,6 +36,7 @@
             text-align: center;
             padding: 12px;
             height: 130px;
+            font-family: Jokerman, cursive;
         }
 
         nav {
@@ -51,23 +54,31 @@
             font-weight: bold; 
         }
 
-        #rightcolumn {
-            flex: 1;
-            background-color: #f2f2cf;
-            color: #2B0100;
-            padding: 12px 20px;
+        nav a:active, a:visited { 
+            color:#9E8469; 
         }
 
-        .content{
-            padding: 12px 20px;
-            display: flex;
-            gap: 48px;
-            align-items: flex-start;
+        nav a:link { 
+            color:#755642; 
+        }
+
+        #rightcolumn {
+            margin-left: 160px;
+            background-color: #f2f2cf;
+            color: #000000;
+            padding: 10px 20px;
+            min-height: 320px;
+        } 
+
+        #left-img {
+            float: left;
+            margin-right: 32px;
         }
 
         #ul-contents ul {
-            list-style-image: url(trillium.gif);
-            padding-left: 1.2rem;     /* adjust indent so bullets look right */
+            list-style-image: url(coffee.png);
+            list-style-position: inside;   /* bullet is inside the content box */
+            padding-left: 20px;            
         }
 
         footer {
@@ -79,9 +90,9 @@
             background-color: #D1B38D;
         }
 
+
     </style>
 </head>
-
 <body>
     <div id="wrapper">
         <header>
@@ -92,16 +103,15 @@
                 <nav>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="rooms.html">Menu</a></li>
+                        <li><a href="menu.html">Menu</a></li>
                         <li><a href="music.html">Music</a></li>
                         <li><a href="jobs.html">Jobs</a></li>
-                    </ul>
                 </nav>
             </div>
             <div id="rightcolumn">
                 <h2>Follow the Winding Road to JavaJam</h2>
                 <div class="content">
-                    <img src="lighthouseisland.jpg" width="400" height="250" id="left-img" alt="Lighthouse Island">
+                    <img src="winding_road.png" width="400" height="200" id="left-img" alt="Lighthouse Island">
                     <div id="ul-contents">
                         <ul>
                             <li>Specialty Coffee and Tea</li>
@@ -117,10 +127,15 @@
                 </div>
             </div>
         </div>
+
         <footer>
             <a style="color: #000000;">Copyright &copy; 2014 JavaJam Coffee House</a>
             <br>yinyu@tan.com
         </footer>
+
+
     </div>
+
+
 </body>
 </html>
