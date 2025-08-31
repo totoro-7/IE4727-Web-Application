@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Table Practice</title>
+    <style>
+        table { 
+            margin: auto;
+            border: 5px solid #000066;
+            width: 600px;
+            border-spacing: 0;
+        }
+        td, th {
+            padding: 5px;
+            font-family: Arial, sans-serif;
+            border-style: none;
+        }
+        caption {
+            font-family: Verdana, sans-serif;
+            font-weight: bold;
+            font-size: 1.2em;
+            padding-bottom: 5px;
+        }
+        tr:nth-of-type(even) {
+            background-color: #eaeaea;
+        }
+        tr:first-of-type {
+            background-color: #000066;
+            color: #eaeaea;
+        }
+    </style>
+</head>
+<body>
+    <table border="1">
+        <caption>Employee Information</caption>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+        <tr>
+            <td>John</td>
+            <td>30</td>
+        </tr>
+        <tr>
+            <td>Jane</td>
+            <td>25</td>
+        </tr>
+    </table>
+</body>
+</html>

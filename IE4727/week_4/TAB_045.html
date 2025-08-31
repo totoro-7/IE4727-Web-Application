@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Time Sheet</title>
+    <style>
+        table { 
+            margin: auto;
+            border: 5px solid #000066;
+            width: 200px;
+            border-spacing: 0;
+        }
+        td, th {
+            padding: 5px;
+            font-family: Arial, sans-serif;
+            border-style: none;
+        }
+        caption {
+            font-family: Verdana, sans-serif;
+            font-weight: bold;
+            font-size: 1.2em;
+            padding-bottom: 5px;
+        }
+        thead {
+            background-color: #000066;
+            color: #eaeaea;
+        }
+        tbody {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.9em;
+        }
+        tbody td {
+            border-bottom: 1px #000033 dashed;
+            padding-left: 25px;
+        }
+        tfoot {
+            background-color: #a2adc0;
+            font-weight: bold;
+            text-align: center;
+        }
+        tr:nth-of-type(even) {
+            background-color: #eaeaea;
+        }
+    </style>
+</head>
+<body>
+    <table border="1">
+        <caption>Time Sheet</caption>
+        <thead>
+            <tr>
+                <th id="day">Day</th>
+                <th id ="hours">Hours</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td headers="day">Monday</td>
+                <td headers="hours">5</td>
+            </tr>
+            <tr>
+                <td headers="day">Tuesday</td>
+                <td headers="hours">7</td>
+            </tr>
+            <tr>
+                <td headers="day">Wednesday</td>
+                <td headers="hours">3</td>
+            </tr>
+            <tr>
+                <td headers="day">Thursday</td>
+                <td headers="hours">8</td>
+            </tr>
+            <tr>
+                <td headers="day">Friday</td>
+                <td headers="hours">9</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td headers="day">Total</td>
+                <td headers="hours">38</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
