@@ -26,7 +26,7 @@
             width: 160px;
             background-color: #E2D1B3;
             float: left;
-            min-height: 340px;
+            min-height: 384px;
         }
 
         header {
@@ -67,7 +67,7 @@
             background-color: #f2f2cf;
             color: #000000;
             padding: 10px 20px;
-            min-height: 320px;
+            min-height: 340px;
         } 
 
         footer {
@@ -77,6 +77,21 @@
             padding-bottom: 20px;
             color: #987160;
             background-color: #D1B38D;
+        }
+
+        form {
+            padding: 5px;
+            margin: 2px;
+            line-height: 2;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        #exp {
+            height: 50px;
+            align-items: top;
         }
 
 
@@ -105,6 +120,21 @@
                         fields are marked with an asterisk *
                     </p>
                 </div>
+
+                <form method="post" action ="show_post.php">
+                    *Name: <input type="text" name="name" id="name" required placeholder="Enter your name here"> 
+                    <br>
+                    *E-mail: <input type="text" name="email" id="email" required placeholder="Enter your Email-ID here"> 
+                    <br>
+                    Start Date: <input type="date" name="date" id="date">
+                    <br>
+                    *Experience: <input class="textarea" type="textarea" size="30" name="exp" id="exp" required placeholder="Enter your past experience here"> 
+
+                    <br><br>
+                    <input type="reset" value="clear">
+                    <br>
+                    <input type="submit" value="Apply Now">
+                </form>
             </div>
         </div>
 
