@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const FormValidation = () => {
+
     const [formData, setFormData] = useState({
         username: "",
         email: "",
@@ -18,6 +19,8 @@ const FormValidation = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setLoading(true);
+
         // Basic validation
         if (formData.password !== formData.confirmPassword) {
             alert("Passwords do not match!");
@@ -33,6 +36,7 @@ const FormValidation = () => {
             password: "",
             confirmPassword: ""
         });
+        setLoading(false);
     }
 
     return (
