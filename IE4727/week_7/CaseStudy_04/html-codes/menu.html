@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaJam Coffee House</title>
+    <style>
+        body {
+            font-family: Verdana, Arial, sans-serif;
+            background-color: #F0E9B5;
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrapper {
+            background-color: #D1B38D;
+            color: #F0E9B5;
+            width: 80%;
+            margin: auto;
+            min-width: 800px;
+            box-shadow: 5px 5px 10px rgba(0,0,0,0.8);
+        }
+
+        .main {
+            overflow: hidden; /* Contains floated elements */
+        }
+
+        #leftcolumn {
+            width: 160px;
+            background-color: #E2D1B3;
+            float: left;
+            padding-bottom: 9999px; /* Large padding to extend column */
+            margin-bottom: -9999px; /* Negative margin to offset padding */
+        }
+
+        header {
+            background-color: #D1B38D;
+            color: #502212;
+            font-size: 150%;
+            text-align: center;
+            padding: 12px;
+            height: 130px;
+            font-family: Jokerman, cursive;
+        }
+
+        nav {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        nav ul { 
+            list-style-type: none; 
+            padding: 0;
+            margin: 0;
+        }
+
+        nav li {
+            margin: 8px 0;
+        }
+
+        nav a { 
+            text-decoration: none; 
+            padding: 10px;
+            font-weight: bold;
+            display: block;
+            color: #755642;
+        }
+
+        nav a:hover {
+            background-color: #D1B38D;
+            color: #F0E9B5;
+        }
+
+        nav a:active, nav a:visited { 
+            color:#9E8469; 
+        }
+
+        nav a:link { 
+            color:#755642; 
+        }
+
+        #rightcolumn {
+            margin-left: 160px;
+            background-color: #f2f2cf;
+            color: #000000;
+            padding: 10px 20px;
+            min-height: 340px;
+            padding-bottom: 9999px; /* Large padding to extend column */
+            margin-bottom: -9999px; /* Negative margin to offset padding */
+        } 
+
+        footer {
+            font-size: 70%;
+            padding: 20px 0;
+            text-align: center;
+            padding-bottom: 30px;
+            color: #987160;
+            background-color: #D1B38D;
+            clear: both;
+        }
+
+        table {
+            margin: auto;
+            width: 600px;
+            border-spacing: 0px;
+            margin-bottom: 20px;
+        }
+
+        td {
+            padding: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: medium;
+            color:#553e2f;
+            vertical-align: top;
+        }
+
+        .type {
+            border-right: 1px solid #FFFFFF;
+        }
+
+        tr:nth-of-type(odd) {
+            background-color: #D1B38D;
+        }
+
+        /* New styles for form elements */
+        .quantity-input {
+            width: 50px;
+            text-align: center;
+            margin: 5px;
+        }
+
+        .price-input {
+            width: 80px;
+            text-align: right;
+            margin: 5px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+        }
+
+        .total-row {
+            background-color: #E2D1B3 !important;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: auto;
+        }
+
+        .radio-group {
+            margin: 2px 0;
+            line-height: 1.2;
+        }
+
+        .radio-group label {
+            display: block;
+            margin: 2px 0;
+            font-weight: normal;
+        }
+
+        .radio-group input[type="radio"] {
+            margin: 0 8px 0 0;
+            vertical-align: middle;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+            <h1>JavaJam Coffee House</h1>
+        </header>
+        <div class="main">
+            <div id="leftcolumn">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="music.html">Music</a></li>
+                        <li><a href="jobs.html">Jobs</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div id="rightcolumn">
+                <h2>Coffee at JavaJam</h2>
+                <div class="content">
+                    <table>
+                        <tr>
+                            <td class="type"><b>Just Java</b></td>
+                            <td>
+                                Regular house blend, decaffinated coffee, or flavor of the day.
+                            <div class="radio-group">
+                                <label>
+                                    <b>Endless Cup $2.00</b>
+                                    <input type="radio" name="java_price" value="2.00">
+                                </label>
+                            </div>
+                            </td>
+                            <td>
+                                <b>Quantity:</b>
+                                <input type="number" id="java_qty" class="quantity-input" name="java_qty" value="0" min="0">
+                            </td>
+                            <td>
+                                <b>Total:</b>
+                                <input type="text" id="java_total" class="price-input" name="java_total" value="$0.00" readonly>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="type"><b>Cafe au Lait</b></td>
+                            <td>
+                                House blend coffee infused into a smooth, steamed milk.
+                            <div class="radio-group">
+                                <label>
+                                    <b>Single $2.00</b>
+                                    <input type="radio" name="lait_price" value="2.00">
+                                </label>
+                                <label>
+                                    <b>Double $3.00</b>
+                                    <input type="radio" name="lait_price" value="3.00">
+                                </label>
+                            </div>
+                        </td>
+                            <td>
+                                <b>Quantity:</b>
+                                <input type="number" id="lait_qty" class="quantity-input" name="lait_qty" value="0" min="0">
+                            </td>
+                            <td>
+                                <b>Total:</b>
+                                <input type="text" id="lait_total" class="price-input" name="lait_total" value="$0.00" readonly>
+                            </td>
+                    </tr>
+                    <tr>
+                        <td class="type"><b>Iced Cappucino</b></td>
+                        <td>
+                            Sweetened espresso blended with icy-cold milk and served in a chilled glass.
+                            <div class="radio-group">
+                                <label>
+                                    <b>Single $4.75</b>
+                                    <input type="radio" name="capp_price" value="4.75">
+                                </label>
+                                <label>
+                                    <b>Double $5.75</b>
+                                    <input type="radio" name="capp_price" value="5.75">
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <b>Quantity:</b>
+                            <input type="number" id="capp_qty" class="quantity-input" name="capp_qty" value="0" min="0">
+                        </td>
+                        <td>
+                            <b>Total:</b>
+                            <input type="text" id="capp_total" class="price-input" name="capp_total" value="$0.00" readonly>
+                        </td>
+                    </tr>
+
+                    <tr class="total-row">
+                        <td colspan="3" style="text-align: right;"><b>Grand Total:</b></td>
+                        <td>
+                            <input type="text" id="grand_total" class="price-input" name="grand_total" value="$0.00" readonly>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+        <footer>
+            <a style="color: #000000;">Copyright &copy; 2014 JavaJam Coffee House</a>
+            <br>yinyu@tan.com
+        </footer>
+
+        <script src="menuupdate.js"></script>
+    </div>
+
+</body>
+</html>
