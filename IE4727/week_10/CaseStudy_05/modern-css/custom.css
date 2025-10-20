@@ -1,0 +1,181 @@
+/* JavaJam Coffee House - Bootstrap Custom Styles */
+
+/* Custom Color Palette */
+:root {
+  --coffee-primary: #D1B38D;
+  --coffee-secondary: #E2D1B3;
+  --coffee-light: #F0E9B5;
+  --coffee-dark: #502212;
+  --coffee-accent: #755642;
+  --coffee-content: #f2f2cf;
+}
+
+/* Background Colors */
+.bg-coffee {
+  background-color: var(--coffee-primary) !important;
+}
+
+.bg-coffee-light {
+  background-color: var(--coffee-secondary) !important;
+}
+
+.bg-content {
+  background-color: var(--coffee-content) !important;
+  min-height: 500px;
+}
+
+/* Text Colors */
+.text-coffee {
+  color: var(--coffee-accent) !important;
+}
+
+.text-coffee-dark {
+  color: var(--coffee-dark) !important;
+}
+
+.text-coffee-light {
+  color: var(--coffee-light) !important;
+}
+
+/* Custom Body */
+body {
+  font-family: Verdana, Arial, sans-serif;
+  background-color: var(--coffee-light);
+}
+
+/* Header Styles */
+header {
+  font-family: 'Jokerman', cursive, Arial, sans-serif;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Navigation Styles */
+.nav-container {
+  min-height: 500px;
+}
+
+.coffee-nav-link {
+  color: var(--coffee-accent) !important;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.coffee-nav-link:hover {
+  background-color: var(--coffee-primary) !important;
+  color: var(--coffee-light) !important;
+}
+
+.coffee-nav-link.active {
+  background-color: var(--coffee-accent) !important;
+  color: var(--coffee-light) !important;
+}
+
+/* Card Customizations */
+.border-coffee {
+  border-color: var(--coffee-accent) !important;
+}
+
+.card {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+/* Form Styles */
+.form-control:focus {
+  border-color: var(--coffee-accent);
+  box-shadow: 0 0 0 0.2rem rgba(117, 86, 66, 0.25);
+}
+
+.btn-coffee {
+  background-color: var(--coffee-accent);
+  border-color: var(--coffee-accent);
+  color: white;
+}
+
+.btn-coffee:hover {
+  background-color: var(--coffee-dark);
+  border-color: var(--coffee-dark);
+  color: white;
+}
+
+/* Error Styling */
+.error-message {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* Menu Table Customizations */
+.table-coffee {
+  background-color: white;
+}
+
+.table-coffee tbody tr:nth-of-type(odd) {
+  background-color: var(--coffee-secondary);
+}
+
+.table-coffee .coffee-type {
+  border-right: 2px solid white;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-container {
+    min-height: auto;
+  }
+  
+  .row.g-0 {
+    flex-direction: column;
+  }
+  
+  .col-md-2, .col-md-10 {
+    width: 100% !important;
+  }
+}
+
+/* Animation for page load */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Custom styling for quantity inputs */
+.quantity-input {
+  width: 70px;
+  text-align: center;
+}
+
+.total-input {
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+}
+
+/* Footer */
+footer {
+  margin-top: auto;
+}
+
+/* Wrapper for full height */
+#wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+/* Main content flex grow */
+.row.g-0 {
+  flex: 1;
+}

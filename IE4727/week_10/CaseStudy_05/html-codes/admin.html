@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaJam Coffee House</title>
+    <style>
+        body {
+            font-family: Verdana, Arial, sans-serif;
+            background-color: #F0E9B5;
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrapper {
+            background-color: #D1B38D;
+            color: #F0E9B5;
+            width: 80%;
+            margin: auto;
+            min-width: 800px;
+            box-shadow: 5px 5px 10px rgba(0,0,0,0.8);
+        }
+
+        .main {
+            overflow: hidden; /* Contains floated elements */
+        }
+
+        #leftcolumn {
+            width: 160px;
+            background-color: #E2D1B3;
+            float: left;
+            padding-bottom: 9999px; /* Large padding to extend column */
+            margin-bottom: -9999px; /* Negative margin to offset padding */
+        }
+
+        header {
+            background-color: #D1B38D;
+            color: #502212;
+            font-size: 150%;
+            text-align: center;
+            padding: 12px;
+            height: 130px;
+            font-family: Jokerman, cursive;
+        }
+
+        nav {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        nav ul { 
+            list-style-type: none; 
+            padding: 0;
+            margin: 0;
+        }
+
+        nav li {
+            margin: 8px 0;
+        }
+
+        nav a { 
+            text-decoration: none; 
+            padding: 10px;
+            font-weight: bold;
+            display: block;
+            color: #755642;
+        }
+
+        nav a:hover {
+            background-color: #D1B38D;
+            color: #F0E9B5;
+        }
+
+        nav a:active, nav a:visited { 
+            color:#9E8469; 
+        }
+
+        nav a:link { 
+            color:#755642; 
+        }
+
+        #rightcolumn {
+            margin-left: 160px;
+            background-color: #f2f2cf;
+            color: #000000;
+            padding: 10px 20px;
+            min-height: 340px;
+            padding-bottom: 9999px; /* Large padding to extend column */
+            margin-bottom: -9999px; /* Negative margin to offset padding */
+        } 
+
+        footer {
+            font-size: 70%;
+            padding: 20px 0;
+            text-align: center;
+            padding-bottom: 30px;
+            color: #987160;
+            background-color: #D1B38D;
+            clear: both;
+        }
+
+        table {
+            margin: auto;
+            width: 600px;
+            border-spacing: 0px;
+            margin-bottom: 20px;
+        }
+
+        td {
+            padding: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: medium;
+            color:#553e2f;
+            vertical-align: top;
+        }
+
+        .type {
+            border-right: 1px solid #FFFFFF;
+        }
+
+        tr:nth-of-type(odd) {
+            background-color: #D1B38D;
+        }
+
+        /* New styles for form elements */
+        .quantity-input {
+            width: 50px;
+            text-align: center;
+            margin: 5px;
+        }
+
+        .price-input {
+            width: 80px;
+            text-align: right;
+            margin: 5px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+        }
+
+        .total-row {
+            background-color: #E2D1B3 !important;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: auto;
+        }
+
+        .radio-group {
+            margin: 2px 0;
+            line-height: 1.2;
+        }
+
+        .radio-group label {
+            display: block;
+            margin: 2px 0;
+            font-weight: normal;
+        }
+
+        .radio-group input[type="radio"] {
+            margin: 0 8px 0 0;
+            vertical-align: middle;
+        }
+    
+        input[type="checkbox"] {
+            cursor: pointer;
+        }
+
+        .update-btn {
+            background-color: #502212;
+            color: #F0E9B5;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .update-btn:hover {
+            background-color: #755642;
+        }
+
+        .update-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .message {
+            padding: 10px;
+            margin: 20px 0;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .message.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .updated-price {
+            background-color: #ffffcc;
+            padding: 2px 5px;
+            font-weight: bold;
+        }
+
+        .price-input {
+            width: 80px;
+            text-align: right;
+            padding: 5px;
+            margin-left: 10px;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+        }
+
+        .price-display {
+            margin-left: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+            <h1>JavaJam Coffee House</h1>
+        </header>
+        <div class="main">
+            <div id="leftcolumn">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="music.html">Music</a></li>
+                        <li><a href="jobs.html">Jobs</a></li>
+                        <li><a href="admin.html">Admin</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div id="rightcolumn">
+                <h2>Click to update product prices:</h2>
+
+                <!-- Message display area -->
+                <div id="message" class="message"></div>
+
+                <!-- Products table -->
+                <table id="products-table">
+                    <tbody id="products-body">
+                        <!-- Products will be loaded here by JavaScript -->
+                    </tbody>
+                </table>
+                
+                <!-- Update button -->
+                <button id="update-btn" class="update-btn" onclick="updatePrices()" disabled>
+                    Update Selected Prices
+                </button>
+            </div>
+        </div>
+
+        <footer>
+            <a style="color: #000000;">Copyright &copy; 2014 JavaJam Coffee House</a>
+            <br>yinyu@tan.com
+        </footer>
+
+        <script src="admin.js"></script>
+    </div>
+
+</body>
+</html>

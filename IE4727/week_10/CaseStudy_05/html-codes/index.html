@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaJam Coffee House</title>
+    <style>
+        body {
+            font-family: Verdana, Arial, sans-serif;
+            background-color: #F0E9B5;
+            /* Diagonal stripe pattern: 2px stripe + 6px gap at 135deg */
+            background-image: repeating-linear-gradient(135deg,
+                rgba(0, 0, 0, 0.05) 0,
+                rgba(0, 0, 0, 0.05) 2px,
+                rgba(0, 0, 0, 0) 2px,
+                rgba(0, 0, 0, 0) 8px);
+        }
+
+        #wrapper {
+            background-color: #D1B38D;
+            color: #F0E9B5;
+            width: 80%;
+            margin: auto;
+            min-width: 800px;
+            box-shadow: 5px 5px 10px rgba(0,0,0,0.8);
+        }
+
+        .main {
+            overflow: hidden; /* Contains floated elements */
+        }
+
+        #leftcolumn {
+            width: 160px;
+            background-color: #E2D1B3;
+            float: left;
+            padding-bottom: 9999px; /* Large padding to extend column */
+            margin-bottom: -9999px; /* Negative margin to offset padding */
+        }
+
+        header {
+            background-color: #D1B38D;
+            color: #502212;
+            font-size: 150%;
+            text-align: center;
+            padding: 12px;
+            height: 130px;
+            font-family: Jokerman, cursive;
+        }
+
+        nav {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        nav ul { 
+            list-style-type: none; 
+            padding: 0;
+            margin: 0; 
+        }
+
+        nav li {
+            margin: 8px 0;
+        }
+
+        nav a { 
+            text-decoration: none; 
+            padding: 10px;
+            font-weight: bold;
+            display: block;
+            color: #755642; 
+        }
+
+        nav a:hover {
+            background-color: #D1B38D;
+            color: #F0E9B5;
+        }
+
+        nav a:active, nav a:visited { 
+            color:#9E8469; 
+        }
+
+        nav a:link { 
+            color:#755642; 
+        }
+
+        #rightcolumn {
+            margin-left: 160px;
+            background-color: #f2f2cf;
+            color: #000000;
+            padding: 10px 20px;
+            min-height: 340px;
+            padding-bottom: 9999px; /* Large padding to extend column */
+            margin-bottom: -9999px; /* Negative margin to offset padding */
+        } 
+
+        #left-img {
+            float: left;
+            margin-right: 32px;
+        }
+
+        #ul-contents ul {
+            list-style-image: url(coffee.png);
+            list-style-position: inside;   /* bullet is inside the content box */
+            padding-left: 20px;            
+        }
+
+        footer {
+            font-size: 70%;
+            padding: 20px 0;
+            text-align: center;
+            padding-bottom: 20px;
+            color: #987160;
+            background-color: #D1B38D;
+            clear: both;
+        }
+
+        p {
+            align-content: flex-start;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+            <h1>JavaJam Coffee House</h1>
+        </header>
+        <div class="main">
+            <div id="leftcolumn">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="music.html">Music</a></li>
+                        <li><a href="jobs.html">Jobs</a></li>
+                        <li><a href="admin.html">Admin</a></li>
+                </nav>
+            </div>
+            <div id="rightcolumn">
+                <h2>Follow the Winding Road to JavaJam</h2>
+                <div class="content">
+                    <img src="winding_road.png" width="400" height="200" id="left-img" alt="Lighthouse Island">
+                    <div id="ul-contents">
+                        <ul>
+                            <li>Specialty Coffee and Tea</li>
+                            <li>Bagels, Muffins, and Organic Snacks</li>
+                            <li>Music and Poetry Readings</li>
+                            <li>Open Mic Night Every Friday</li>
+                        </ul>
+
+                        <p>
+                            54321 Route 42
+                            <br>Elison Bay, WI 54210
+                            <br>888-555-8888
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <a style="color: #000000;">Copyright &copy; 2014 JavaJam Coffee House</a>
+            <br>yinyu@tan.com
+        </footer>
+
+
+    </div>
+
+
+</body>
+</html>

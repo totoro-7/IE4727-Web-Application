@@ -1,0 +1,64 @@
+.jobs-page {
+    padding: 20px;
+}
+
+.jobs-page h2 {
+    color: #502212;
+    margin-bottom: 20px;
+}
+
+.jobs-page > p {
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.jobs-form {
+    max-width: 600px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #502212;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: Verdana, Arial, sans-serif;
+}
+
+.form-group input.error,
+.form-group textarea.error {
+    border-color: #ff0000;
+}
+
+.error-message {
+    display: block;
+    color: #ff0000;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+.submit-btn {
+    background-color: #502212;
+    color: #F0E9B5;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.submit-btn:hover {
+    background-color: #755642;
+}

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaJam Coffee House</title>
+    <style>
+        body {
+            font-family: Verdana, Arial, sans-serif;
+            background-color: #F0E9B5;
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrapper {
+            background-color: #D1B38D;
+            color: #F0E9B5;
+            width: 80%;
+            margin: auto;
+            min-width: 800px;
+            box-shadow: 5px 5px 10px rgba(0,0,0,0.8);
+        }
+
+        .main {
+            overflow: hidden; /* Contains floated elements */
+        }
+
+        #leftcolumn {
+            width: 160px;
+            background-color: #E2D1B3;
+            float: left;
+            padding-bottom: 9999px; /* Large padding to extend column */
+            margin-bottom: -9999px; /* Negative margin to offset padding */
+        }
+
+        header {
+            background-color: #D1B38D;
+            color: #502212;
+            font-size: 150%;
+            text-align: center;
+            padding: 12px;
+            height: 130px;
+            font-family: Jokerman, cursive;
+        }
+
+        nav {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        nav ul { 
+            list-style-type: none; 
+            padding: 0;
+            margin: 0;
+        }
+
+        nav li {
+            margin: 8px 0;
+        }
+
+        nav a { 
+            text-decoration: none; 
+            padding: 10px;
+            font-weight: bold;
+            display: block;
+            color: #755642;
+        }
+
+        nav a:active, nav a:visited { 
+            color:#9E8469; 
+        }
+
+        nav a:link { 
+            color:#755642; 
+        }
+
+        nav a:hover {
+            background-color: #D1B38D;
+            color: #F0E9B5;
+        }
+
+        #rightcolumn {
+            margin-left: 160px;
+            background-color: #f2f2cf;
+            color: #000000;
+            padding: 10px 20px;
+            min-height: 340px;
+            padding-bottom: 9999px; /* Large padding to extend column */
+            margin-bottom: -9999px; /* Negative margin to offset padding */
+        } 
+
+        footer {
+            font-size: 70%;
+            padding: 20px 0;
+            text-align: center;
+            padding-bottom: 20px;
+            color: #987160;
+            background-color: #D1B38D;
+            clear: both;
+        }
+
+        form {
+            padding: 5px;
+            margin: 2px;
+            line-height: 2;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        #exp {
+            height: 50px;
+            align-items: top;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+            display: none;
+            /* margin-left: 10px; */
+            padding: 0;
+            line-height: 1.2;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+            <h1>JavaJam Coffee House</h1>
+        </header>
+        <div class="main">
+            <div id="leftcolumn">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="music.html">Music</a></li>
+                        <li><a href="jobs.html">Jobs</a></li>
+                        <li><a href="admin.html">Admin</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div id="rightcolumn">
+                <h2>Jobs at JavaJam</h2>
+                <div class="content">
+                    <p>
+                        Want to work at JavaJam? Fill out the form below to start your application. Required
+                        fields are marked with an asterisk *
+                    </p>
+                </div>
+
+                <form id="jobForm" method="post" action="show_post.php">
+                    *Name: <input type="text" name="name" id="name" required placeholder="Enter your name here">
+                    <br>
+                    <span id="nameError" class="error"></span>
+                    <br>
+                    *E-mail: <input type="email" name="email" id="email" required placeholder="Enter your Email-ID here">
+                    <br>
+                    <span id="emailError" class="error"></span>
+                    <br>
+                    Start Date: <input type="date" name="date" id="date">
+                    <br>
+                    <span id="dateError" class="error"></span>
+                    <br>
+                    *Experience: 
+                    <br>
+                    <textarea required placeholder="Enter your past experience here" name="exp" id="exp" rows="4" cols="40"></textarea>
+                    <br>
+                    <span id="expError" class="error"></span>
+
+                    <br><br>
+                    <input type="reset" value="Clear">
+                    <br>
+                    <input type="submit" value="Apply Now">
+                </form>
+            </div>
+        </div>
+
+        <footer>
+            <a style="color: #000000;">Copyright &copy; 2014 JavaJam Coffee House</a>
+            <br>yinyu@tan.com
+        </footer>
+
+
+    </div>
+
+    <script src="formvalidation.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+/* JavaJam Coffee House - Main App Layout */
+
+.app-container {
+  background-color: var(--coffee-primary);
+  color: var(--coffee-light);
+  width: 80%;
+  margin: 0 auto;
+  min-width: 800px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.8);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  background-color: var(--coffee-primary);
+  color: var(--coffee-dark);
+  font-size: 150%;
+  text-align: center;
+  padding: 12px;
+  height: 130px;
+  font-family: Jokerman, cursive, Arial, sans-serif;
+}
+
+.app-header h1 {
+  margin: 0;
+  line-height: 1.2;
+}
+
+.main-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+#leftcolumn {
+  width: 160px;
+  background-color: var(--coffee-secondary);
+  padding: 20px 0;
+}
+
+#leftcolumn ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+#leftcolumn li {
+  margin: 8px 0;
+}
+
+#leftcolumn a {
+  text-decoration: none;
+  padding: 10px;
+  font-weight: bold;
+  display: block;
+  color: var(--coffee-accent);
+}
+
+#leftcolumn a:hover {
+  background-color: var(--coffee-primary);
+  color: var(--coffee-light);
+}
+
+#leftcolumn a.active {
+  background-color: var(--coffee-accent);
+  color: var(--coffee-light);
+}
+
+.content-area {
+  flex: 1;
+  background-color: var(--coffee-content);
+  color: #000000;
+  padding: 10px 20px;
+  overflow-y: auto;
+}
+
+.app-footer {
+  font-size: 70%;
+  padding: 20px 0;
+  text-align: center;
+  padding-bottom: 20px;
+  color: #987160;
+  background-color: var(--coffee-primary);
+  clear: both;
+}
+
+.app-footer a {
+  color: #000000;
+  text-decoration: none;
+}
+
+@media (max-width: 800px) {
+  .app-container {
+    width: 100%;
+    min-width: 320px;
+  }
+  
+  .main-content {
+    flex-direction: column;
+  }
+  
+  #leftcolumn {
+    width: 100%;
+  }
+  
+  #leftcolumn ul {
+    display: flex;
+    justify-content: space-around;
+  }
+}

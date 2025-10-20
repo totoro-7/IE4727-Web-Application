@@ -1,0 +1,48 @@
+.music-page {
+    padding: 20px;
+}
+
+.music-page h2 {
+    color: #502212;
+    margin-bottom: 20px;
+}
+
+.music-page > p {
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.music-event {
+    margin-bottom: 40px;
+}
+
+.music-event h3 {
+    color: #502212;
+    margin-bottom: 15px;
+}
+
+.performer {
+    display: flex;
+    gap: 20px;
+}
+
+.performer-img {
+    width: 100px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.performer-info {
+    flex: 1;
+}
+
+.performer-info strong {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.performer-info p {
+    line-height: 1.6;
+}

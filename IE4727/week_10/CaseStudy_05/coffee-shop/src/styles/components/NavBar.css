@@ -1,0 +1,29 @@
+#leftcolumn {
+    width: 160px;
+    background-color: #E2D1B3;
+    float: left;
+    min-height: 360px;
+}
+
+nav {
+    text-align: center;
+}
+
+nav ul { 
+    list-style-type: none; 
+    padding: 10px; 
+}
+
+nav a { 
+    text-decoration: none; 
+    padding: 10px;
+    font-weight: bold; 
+}
+
+nav a:active, a:visited { 
+    color:#9E8469; 
+}
+
+nav a:link { 
+    color:#755642; 
+}
