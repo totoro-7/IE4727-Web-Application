@@ -3,6 +3,11 @@ let products = [];
 // Load products when page loads
 window.onload = function() {
     loadMenu();
+    // Wire up checkout button
+    const btn = document.getElementById('checkout-btn');
+    if (btn) {
+        btn.addEventListener('click', checkout);
+    }
 };
 
 // Load menu items from database via PHP (reusing get_products.php)
@@ -69,6 +74,7 @@ function displayMenu() {
                            name="${productId}_price" 
                            id="${productId}_single"
                            value="${item.price}"
+                           data-product-id="${item.product_id}"
                            checked>
                     <label for="${productId}_single">${item.size_type} $${parseFloat(item.price).toFixed(2)}</label>
                 `;
@@ -81,6 +87,7 @@ function displayMenu() {
                                name="${productId}_price" 
                                id="${productId}_${sizeId}"
                                value="${item.price}"
+                               data-product-id="${item.product_id}"
                                ${idx === 0 ? 'checked' : ''}>
                         <label for="${productId}_${sizeId}">${item.size_type} $${parseFloat(item.price).toFixed(2)}</label><br>
                     `;
@@ -182,4 +189,95 @@ function calculateTotal() {
     if (grandTotalInput) {
         grandTotalInput.value = '$' + grandTotal.toFixed(2);
     }
+}
+
+// Checkout function - saves order to database
+async function checkout() {
+    // Collect order items
+    const orderItems = [];
+    
+    // Just Java
+    const javaQty = parseInt(document.getElementById('java_qty')?.value) || 0;
+    const javaRadio = document.querySelector('input[name="java_price"]:checked');
+    if (javaQty > 0 && javaRadio) {
+        orderItems.push({
+            product_id: javaRadio.dataset.productId,
+            quantity: javaQty,
+            unit_price: parseFloat(javaRadio.value),
+            subtotal: javaQty * parseFloat(javaRadio.value)
+        });
+    }
+    
+    // Cafe au Lait
+    const laitQty = parseInt(document.getElementById('lait_qty')?.value) || 0;
+    const laitRadio = document.querySelector('input[name="lait_price"]:checked');
+    if (laitQty > 0 && laitRadio) {
+        orderItems.push({
+            product_id: laitRadio.dataset.productId,
+            quantity: laitQty,
+            unit_price: parseFloat(laitRadio.value),
+            subtotal: laitQty * parseFloat(laitRadio.value)
+        });
+    }
+    
+    // Iced Cappuccino
+    const cappQty = parseInt(document.getElementById('capp_qty')?.value) || 0;
+    const cappRadio = document.querySelector('input[name="capp_price"]:checked');
+    if (cappQty > 0 && cappRadio) {
+        orderItems.push({
+            product_id: cappRadio.dataset.productId,
+            quantity: cappQty,
+            unit_price: parseFloat(cappRadio.value),
+            subtotal: cappQty * parseFloat(cappRadio.value)
+        });
+    }
+    
+    // Validate that there are items in the order
+    if (orderItems.length === 0) {
+        showMessage('Please add items to your order before checking out.', 'error');
+        return;
+    }
+    
+    // Calculate total
+    const total = orderItems.reduce((sum, item) => sum + item.subtotal, 0);
+    
+    // Send order to server
+    try {
+        const formData = new FormData();
+        formData.append('order_items', JSON.stringify(orderItems));
+        formData.append('total_amount', total);
+        
+        const response = await fetch('checkout.php', {
+            method: 'POST',
+            body: formData
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            showMessage(`Order placed successfully! Order ID: ${result.order_id}`, 'success');
+            
+            // Reset form
+            document.getElementById('java_qty').value = 0;
+            document.getElementById('lait_qty').value = 0;
+            document.getElementById('capp_qty').value = 0;
+            calculateTotal();
+        } else {
+            showMessage('Error placing order: ' + result.error, 'error');
+        }
+    } catch (error) {
+        showMessage('Error placing order: ' + error.message, 'error');
+    }
+}
+
+// Show message
+function showMessage(text, type) {
+    const messageDiv = document.getElementById('message');
+    messageDiv.textContent = text;
+    messageDiv.className = `message ${type}`;
+    messageDiv.style.display = 'block';
+    
+    setTimeout(() => {
+        messageDiv.style.display = 'none';
+    }, 5000);
 }

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>JavaJam Coffee House - Menu</title>
+    <title>JavaJam Coffee House - Daily Sales Report</title>
     <style>
         body {
             font-family: Verdana, Arial, sans-serif;
@@ -90,45 +90,26 @@
             clear: both;
         }
 
-        table {
-            margin: auto;
-            width: 90%;
-            border-spacing: 0px;
-            margin-bottom: 20px;
+        .report-section {
+            margin: 30px 0;
         }
 
-        td {
-            padding: 10px;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: medium;
-            color:#553e2f;
-            vertical-align: top;
+        .checkbox-group {
+            margin: 20px 0;
         }
 
-        .type {
-            border-right: 1px solid #FFFFFF;
-            width: 150px;
+        .checkbox-group label {
+            display: block;
+            margin: 10px 0;
+            font-size: 1.1em;
         }
 
-        tr:nth-of-type(odd) {
-            background-color: #D1B38D;
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 10px;
+            cursor: pointer;
         }
 
-        .quantity-input {
-            width: 50px;
-            text-align: center;
-            margin: 5px;
-        }
-
-        .subtotal input {
-            width: 80px;
-            text-align: right;
-            background-color: #f9f9f9;
-            border: 1px solid #ccc;
-            padding: 5px;
-        }
-
-        .checkout-btn {
+        .generate-btn {
             background-color: #502212;
             color: #F0E9B5;
             padding: 12px 30px;
@@ -136,37 +117,61 @@
             cursor: pointer;
             font-weight: bold;
             font-size: 1.1em;
-            margin: 20px auto;
-            display: block;
+            margin: 20px 0;
             border-radius: 4px;
         }
 
-        .checkout-btn:hover {
+        .generate-btn:hover {
             background-color: #755642;
         }
 
-        .checkout-btn:disabled {
+        .generate-btn:disabled {
             background-color: #ccc;
             cursor: not-allowed;
         }
 
-        .message {
-            padding: 10px;
+        .report-table {
+            width: 100%;
+            border-collapse: collapse;
             margin: 20px 0;
+            display: none;
+        }
+
+        .report-table th {
+            background-color: #5B76A6;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .report-table td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .report-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .highlight {
+            background-color: #ffffcc;
+            font-weight: bold;
+        }
+
+        #popular-result {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
             border-radius: 4px;
             display: none;
         }
 
-        .message.success {
-            background-color: #d4edda;
+        #popular-result p {
+            margin: 5px 0;
             color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-
-        .message.error {
-            background-color: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
+            font-size: 1.1em;
         }
     </style>
 </head>
@@ -189,19 +194,57 @@
                 </nav>
             </div>
             <div id="rightcolumn">
-                <h2>Coffee at JavaJam</h2>
+                <h2>Click to generate daily sales report:</h2>
                 
-                <div id="message" class="message"></div>
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" id="sales-by-product" value="product">
+                        Total dollar and quantity sales by products
+                    </label>
+                    <label>
+                        <input type="checkbox" id="sales-by-category" value="category">
+                        Total dollar and quantity sales by categories
+                    </label>
+                </div>
 
-                <table>
-                    <tbody id="menu-body">
-                        <!-- Menu items will be loaded here via JavaScript -->
+                <div class="report-section">
+                    <label style="font-size: 1.1em;">
+                        Popular option of best selling product:
+                        <input type="text" id="popular-input" style="width: 200px; padding: 5px; margin-left: 10px;" readonly>
+                    </label>
+                </div>
+
+                <button class="generate-btn" onclick="generateReport()">Generate Report</button>
+
+                <!-- Sales by Product Table -->
+                <table class="report-table" id="product-table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Total Dollar Sales</th>
+                            <th>Quantity Sales</th>
+                        </tr>
+                    </thead>
+                    <tbody id="product-tbody">
                     </tbody>
                 </table>
 
-                <button id="checkout-btn" class="checkout-btn">
-                    Check Out
-                </button>
+                <!-- Sales by Category Table -->
+                <table class="report-table" id="category-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Total Dollar Sales</th>
+                            <th>Quantity Sales</th>
+                        </tr>
+                    </thead>
+                    <tbody id="category-tbody">
+                    </tbody>
+                </table>
+
+                <!-- Popular Product Result -->
+                <div id="popular-result">
+                </div>
             </div>
         </div>
 
@@ -211,6 +254,6 @@
         </footer>
     </div>
 
-    <script src="menu.js"></script>
+    <script src="sales_report.js"></script>
 </body>
 </html>
