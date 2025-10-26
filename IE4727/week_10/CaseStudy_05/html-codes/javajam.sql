@@ -18,19 +18,9 @@ INSERT INTO products (product_name, size_type, price, description) VALUES
 ('Iced Cappuccino', 'Single', 4.75, 'Sweetened espresso blended with icy-cold milk and served in a chilled glass.'),
 ('Iced Cappuccino', 'Double', 5.75, 'Sweetened espresso blended with icy-cold milk and served in a chilled glass.');
 
--- Table to store sales/revenue data
-CREATE TABLE revenue (
-    sale_id INT PRIMARY KEY AUTO_INCREMENT,
-    product_id INT NOT NULL,
-    quantity INT NOT NULL,
-    sale_price DECIMAL(6,2) NOT NULL,
-    sale_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (product_id) REFERENCES products(product_id)
-);
-
 -- Table to store orders
 CREATE TABLE orders (
-    order_id INT PRIMARY KEY AUTO_INCREMENT,
+    order_id INT PRIMARY KEY AU TO_INCREMENT,
     order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     total_amount DECIMAL(10,2) NOT NULL
 );

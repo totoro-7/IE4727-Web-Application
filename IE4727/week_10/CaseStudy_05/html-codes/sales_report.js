@@ -23,7 +23,7 @@ async function generateReport() {
         }
         
         if (showCategory) {
-            displayCategoryReport(data.by_category);
+            displayCategoryReport(data.by_category, data.category_totals);
         }
         
         // Always calculate and show popular option
@@ -53,7 +53,7 @@ function displayProductReport(products) {
     document.getElementById('product-table').style.display = 'table';
 }
 
-function displayCategoryReport(categories) {
+function displayCategoryReport(categories, categoryTotals) {
     const tbody = document.getElementById('category-tbody');
     tbody.innerHTML = '';
     
@@ -67,6 +67,46 @@ function displayCategoryReport(categories) {
         `;
         tbody.appendChild(tr);
     });
+
+    // Append aggregate rows for Single and Double across all products
+    if (Array.isArray(categoryTotals) && categoryTotals.length > 0) {
+        let singleSales = 0, singleQty = 0;
+        let doubleSales = 0, doubleQty = 0;
+
+        categoryTotals.forEach(ct => {
+            const cat = (ct.category || '').toString().toLowerCase();
+            if (cat === 'single') {
+                singleSales += parseFloat(ct.total_sales || 0);
+                singleQty += parseInt(ct.quantity_sold || 0, 10);
+            } else if (cat === 'double') {
+                doubleSales += parseFloat(ct.total_sales || 0);
+                doubleQty += parseInt(ct.quantity_sold || 0, 10);
+            }
+        });
+
+        // Only append rows if there is data
+        if (singleSales > 0 || singleQty > 0) {
+            const trSingle = document.createElement('tr');
+            trSingle.className = 'highlight';
+            trSingle.innerHTML = `
+                <td>Single (all coffees)</td>
+                <td>$${singleSales.toFixed(2)}</td>
+                <td>${singleQty}</td>
+            `;
+            tbody.appendChild(trSingle);
+        }
+
+        if (doubleSales > 0 || doubleQty > 0) {
+            const trDouble = document.createElement('tr');
+            trDouble.className = 'highlight';
+            trDouble.innerHTML = `
+                <td>Double (all coffees)</td>
+                <td>$${doubleSales.toFixed(2)}</td>
+                <td>${doubleQty}</td>
+            `;
+            tbody.appendChild(trDouble);
+        }
+    }
     
     document.getElementById('category-table').style.display = 'table';
 }

@@ -19,18 +19,12 @@
             <nav class="col-md-2 bg-coffee-light">
                 <div class="nav-container p-3">
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2">
-                            <a class="nav-link coffee-nav-link" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item mb-2">
-                            <a class="nav-link coffee-nav-link active" href="menu-bootstrap.html">Menu</a>
-                        </li>
-                        <li class="nav-item mb-2">
-                            <a class="nav-link coffee-nav-link" href="music-bootstrap.html">Music</a>
-                        </li>
-                        <li class="nav-item mb-2">
-                            <a class="nav-link coffee-nav-link" href="jobs-bootstrap.html">Jobs</a>
-                        </li>
+                        <li class="nav-item mb-2"><a class="nav-link coffee-nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item mb-2"><a class="nav-link coffee-nav-link active" href="menu-bootstrap.html">Menu</a></li>
+                        <li class="nav-item mb-2"><a class="nav-link coffee-nav-link" href="music-bootstrap.html">Music</a></li>
+                        <li class="nav-item mb-2"><a class="nav-link coffee-nav-link" href="jobs-bootstrap.html">Jobs</a></li>
+                        <li class="nav-item mb-2"><a class="nav-link coffee-nav-link" href="admin-bootstrap.html">Admin</a></li>
+                        <li class="nav-item mb-2"><a class="nav-link coffee-nav-link" href="sales-report-bootstrap.html">Sales Report</a></li>
                     </ul>
                 </div>
             </nav>
@@ -40,181 +34,22 @@
                 <div class="container-fluid p-4">
                     <h2 class="mb-4">Coffee at JavaJam</h2>
                     
+                    <div id="message" class="alert alert-info d-none" role="alert"></div>
+
                     <div class="table-responsive">
                         <table class="table table-coffee table-bordered">
-                            <tbody>
-                                <!-- Just Java Row -->
-                                <tr>
-                                    <td class="coffee-type col-md-2">
-                                        <strong>Just Java</strong>
-                                    </td>
-                                    <td class="col-md-5">
-                                        <p class="mb-2">Regular house blend, decaffeinated coffee, or flavor of the day.</p>
-                                        <div class="form-check">
-                                            <input 
-                                                class="form-check-input" 
-                                                type="radio" 
-                                                name="java_price" 
-                                                id="java_endless" 
-                                                value="2.00"
-                                            >
-                                            <label class="form-check-label fw-bold" for="java_endless">
-                                                Endless Cup $2.00
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td class="col-md-2">
-                                        <label class="form-label"><strong>Quantity:</strong></label>
-                                        <input 
-                                            type="number" 
-                                            class="form-control quantity-input" 
-                                            id="java_qty" 
-                                            value="0" 
-                                            min="0"
-                                        >
-                                    </td>
-                                    <td class="col-md-3">
-                                        <label class="form-label"><strong>Total:</strong></label>
-                                        <input 
-                                            type="text" 
-                                            class="form-control total-input" 
-                                            id="java_total" 
-                                            value="$0.00" 
-                                            readonly
-                                        >
-                                    </td>
-                                </tr>
-
-                                <!-- Cafe au Lait Row -->
-                                <tr>
-                                    <td class="coffee-type">
-                                        <strong>Cafe au Lait</strong>
-                                    </td>
-                                    <td>
-                                        <p class="mb-2">House blend coffee infused into a smooth, steamed milk.</p>
-                                        <div class="form-check">
-                                            <input 
-                                                class="form-check-input" 
-                                                type="radio" 
-                                                name="lait_price" 
-                                                id="lait_single" 
-                                                value="2.00"
-                                            >
-                                            <label class="form-check-label fw-bold" for="lait_single">
-                                                Single $2.00
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input 
-                                                class="form-check-input" 
-                                                type="radio" 
-                                                name="lait_price" 
-                                                id="lait_double" 
-                                                value="3.00"
-                                            >
-                                            <label class="form-check-label fw-bold" for="lait_double">
-                                                Double $3.00
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <label class="form-label"><strong>Quantity:</strong></label>
-                                        <input 
-                                            type="number" 
-                                            class="form-control quantity-input" 
-                                            id="lait_qty" 
-                                            value="0" 
-                                            min="0"
-                                        >
-                                    </td>
-                                    <td>
-                                        <label class="form-label"><strong>Total:</strong></label>
-                                        <input 
-                                            type="text" 
-                                            class="form-control total-input" 
-                                            id="lait_total" 
-                                            value="$0.00" 
-                                            readonly
-                                        >
-                                    </td>
-                                </tr>
-
-                                <!-- Iced Cappuccino Row -->
-                                <tr>
-                                    <td class="coffee-type">
-                                        <strong>Iced Cappuccino</strong>
-                                    </td>
-                                    <td>
-                                        <p class="mb-2">Sweetened espresso blended with icy-cold milk and served in a chilled glass.</p>
-                                        <div class="form-check">
-                                            <input 
-                                                class="form-check-input" 
-                                                type="radio" 
-                                                name="capp_price" 
-                                                id="capp_single" 
-                                                value="4.75"
-                                            >
-                                            <label class="form-check-label fw-bold" for="capp_single">
-                                                Single $4.75
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input 
-                                                class="form-check-input" 
-                                                type="radio" 
-                                                name="capp_price" 
-                                                id="capp_double" 
-                                                value="5.75"
-                                            >
-                                            <label class="form-check-label fw-bold" for="capp_double">
-                                                Double $5.75
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <label class="form-label"><strong>Quantity:</strong></label>
-                                        <input 
-                                            type="number" 
-                                            class="form-control quantity-input" 
-                                            id="capp_qty" 
-                                            value="0" 
-                                            min="0"
-                                        >
-                                    </td>
-                                    <td>
-                                        <label class="form-label"><strong>Total:</strong></label>
-                                        <input 
-                                            type="text" 
-                                            class="form-control total-input" 
-                                            id="capp_total" 
-                                            value="$0.00" 
-                                            readonly
-                                        >
-                                    </td>
-                                </tr>
-
-                                <!-- Grand Total Row -->
-                                <tr class="table-warning">
-                                    <td colspan="3" class="text-end">
-                                        <strong class="fs-5">Grand Total:</strong>
-                                    </td>
-                                    <td>
-                                        <input 
-                                            type="text" 
-                                            class="form-control total-input fw-bold" 
-                                            id="grand_total" 
-                                            value="$0.00" 
-                                            readonly
-                                        >
-                                    </td>
-                                </tr>
+                            <tbody id="menu-body">
+                                <!-- Menu rows will be injected by JS -->
                             </tbody>
                         </table>
                     </div>
 
-                    <div class="text-center mt-4">
+                    <div class="d-flex justify-content-center gap-2 mt-4">
                         <button type="button" class="btn btn-outline-secondary" onclick="resetOrder()">
                             Reset Order
+                        </button>
+                        <button type="button" id="checkout-btn" class="btn btn-primary">
+                            Check Out
                         </button>
                     </div>
                 </div>
