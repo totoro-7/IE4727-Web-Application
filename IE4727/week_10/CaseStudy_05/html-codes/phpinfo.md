@@ -248,3 +248,25 @@ This folder’s endpoints are consumed by both:
 - html-codes/*.html (classic UI)
 - ../modern-css/* (Bootstrap UI)
 Both call the same PHP files here to query/update the MySQL database.
+
+NOW(), CURRENT_TIMESTAMP: current date-time (YYYY-MM-DD HH:MM:SS).
+CURDATE(): current date (YYYY-MM-DD). CURTIME(): current time.
+DATE(expr): drops the time part, returns just YYYY-MM-DD.
+DATE('2025-10-27 14:23:05') -> '2025-10-27'
+DATE_ADD(dateTime, INTERVAL N unit): add an interval.
+DATE_ADD('2025-10-27', INTERVAL 1 DAY) -> '2025-10-28'
+Units include SECOND, MINUTE, HOUR, DAY, MONTH, YEAR.
+DATE_SUB(dateTime, INTERVAL N unit): subtract an interval.
+DATEDIFF(d1, d2): days between d1 and d2 (ignores time).
+TIMESTAMPDIFF(unit, d1, d2): diff in chosen unit (SECOND, HOUR, DAY, etc.).
+DATE_FORMAT(dt, fmt): format a date-time as text (e.g., '%Y-%m').
+STR_TO_DATE(str, fmt): parse a string into a date-time.
+Inclusive date range pattern (recommended)
+
+Goal: include the full end day, stay index-friendly.
+Pattern:
+WHERE o.created_at >= :start_date
+AND o.created_at < DATE_ADD(:end_date, INTERVAL 1 DAY)
+Why:
+Inclusive of 00:00:00 through 23:59:59.999… of end_date.
+Keeps the column (o.created_at) unwrapped by a function, so MySQL can use an index on orders.created_at.
