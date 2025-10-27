@@ -18,6 +18,7 @@ FROM order_items oi
 JOIN products p ON oi.product_id = p.product_id
 GROUP BY p.product_name
 ORDER BY total_sales DESC";
+// Group by product so one row per product
 
 $result = $db->query($query);
 $by_product = [];
@@ -37,6 +38,7 @@ FROM order_items oi
 JOIN products p ON oi.product_id = p.product_id
 GROUP BY p.size_type, p.product_name
 ORDER BY p.product_name, total_sales DESC";
+// Group by size and product so one row per product-size combination
 
 $result = $db->query($query);
 $by_category = [];
@@ -58,6 +60,7 @@ FROM order_items oi
 JOIN products p ON oi.product_id = p.product_id
 GROUP BY category
 ORDER BY total_sales DESC";
+// Group by category, so one row per category across all products
 
 $result = $db->query($query);
 $category_totals = [];
